@@ -84,7 +84,7 @@ public class Asteroids extends Applet implements Runnable, KeyListener {
 		g2d.setColor(Color.WHITE);
 		g2d.drawString("Ship: " + Math.round(ship.getX()) + "," + Math.round(ship.getY()), 5, 10);
 		g2d.drawString("Move angle: " + Math.round(ship.getMoveAngle()) + 90, 5, 25);
-		g2d.drawString("Face angle: " + Math.round(ship.getFaceAngle()) + 90, 5, 40);
+		g2d.drawString("Face angle: " + Math.round(ship.getFaceAngle()), 5, 40);
 
 		// draw the game graphics
 		drawShip();
@@ -210,6 +210,9 @@ public class Asteroids extends Applet implements Runnable, KeyListener {
 		} else if (ship.getX() > getSize().width + 10) {
 			ship.setX(-10);
 		}
+		
+		// update ship's Y position
+		ship.incY(ship.getVelY());
 
 		// wrap around top/bottom
 		if (ship.getY() < -10) {
