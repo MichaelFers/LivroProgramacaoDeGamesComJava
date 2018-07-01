@@ -3,6 +3,10 @@ import java.awt.*;
 import java.awt.Event.*;
 import java.applet.*;
 import java.util.*;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 import java.awt.geom.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -10,8 +14,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 //essa classe cria um pentágono giratório. Para girá-lo é necessário o clique do mouse
-public class RotatePolygon extends Applet  implements KeyListener, MouseListener {
+public class RotatePolygonSemUsoApplet extends JFrame implements KeyListener, MouseListener {
 
+	public static void main(String[] args) {
+		
+		RotatePolygonSemUsoApplet a = new RotatePolygonSemUsoApplet();
+		
+	}
 	private int[] xpoints = { 0, -10, -7, 7, 10 };
 	private int[] ypoints = { -10, -2, 10, 10, -2 };
 
@@ -22,9 +31,13 @@ public class RotatePolygon extends Applet  implements KeyListener, MouseListener
 	int rotation = 0;
 	
 	// applet init event
-	@Override
-	public void init() {
+	
+	public  RotatePolygonSemUsoApplet() {
 
+		setSize(800, 600);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setVisible(true);
 		// create the polygon
 		poly = new Polygon(xpoints, ypoints, xpoints.length);
 
@@ -145,3 +158,4 @@ public class RotatePolygon extends Applet  implements KeyListener, MouseListener
 	}
 
 }
+
