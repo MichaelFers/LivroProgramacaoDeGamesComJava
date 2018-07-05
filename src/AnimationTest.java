@@ -124,6 +124,7 @@ public class AnimationTest extends Applet implements Runnable{
 	public void update(Graphics g) {
 		
 		//draw the current frame of animation
+		
 		drawFrame(ball,g2d,ballX,ballY,8,currentFrame,64,64);
 		
 		g2d.setColor(Color.BLACK);
@@ -140,6 +141,7 @@ public class AnimationTest extends Applet implements Runnable{
 	
 	//draw a single frame of animation
 	public void drawFrame(Image source, Graphics2D dest, int x, int y, int cols, int frame, int width, int height) {
+		System.out.println(frame);
 		int fx = (frame % cols) * width;
 		int fy = (frame / cols) * height;
 		dest.drawImage(source, x, y, x+width, y+height, fx, fy, fx+width, fy+height, this);
